@@ -1,11 +1,16 @@
 
 class FileFunctions:
+    fileName = "test"
 
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, fileName):
+        self.fileName = fileName
 
-    def load_file(self):
-        pass
+    def read_file(self):
+        with open(self.fileName) as file:
+            content = file.read()
+        return content
 
-    def save_file(self, mybudget):
-        pass
+    def write_file(self, content, filemode):
+        with open(self.fileName, mode=filemode) as file:
+            file.write(content)
+
