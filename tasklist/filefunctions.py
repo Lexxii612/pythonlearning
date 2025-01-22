@@ -1,4 +1,4 @@
-
+import csv
 class FileFunctions:
     fileName = "test"
 
@@ -9,6 +9,13 @@ class FileFunctions:
         with open(self.fileName) as file:
             content = file.read()
         return content
+    
+    def read_csv(self):
+        with open(self.fileName) as file:
+            data = csv.reader(file)
+        return data
+    
+
 
     def write_file(self, content, filemode):
         with open(self.fileName, mode=filemode) as file:
