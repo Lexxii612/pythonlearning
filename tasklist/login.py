@@ -20,11 +20,12 @@ class Login:
     def create_user(self, userName, password):
         if self.check_username(userName) == True:
             myfile = FileFunctions(self.filename)
-            myfile.write_file("", "a")
+            myfile.write_file(f"{userName},{password}\n", "a")
         
 
     def authenticate_user(self, userName, password):
-        pass
+        retval = False
+        return retval
 
     def load_file(self):
         myfile = FileFunctions(self.filename)
