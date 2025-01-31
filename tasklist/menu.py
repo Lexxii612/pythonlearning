@@ -1,8 +1,3 @@
-#add Expense
-#view Expenses
-#Track Budget
-#Save Expenses
-#Exit
 from tasklist import TaskList
 from filefunctions import FileFunctions
 from user import User
@@ -43,9 +38,9 @@ class Menu:
     def invoke_option(self):
 
         if not self.my_user.is_authenticated() and self.user_selection == 1:
-             self.my_user.create_user()
-        elif not self.my_user.is_authenticated() and self.user_selection ==2:
              self.my_user.authenticate_user()
+        elif not self.my_user.is_authenticated() and self.user_selection ==2:
+             self.my_user.create_user()
         elif self.my_user.is_authenticated() and self.user_selection == 5:
             self.is_active = False
         elif self.my_user.is_authenticated() and self.user_selection == 1:

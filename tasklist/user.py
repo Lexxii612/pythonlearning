@@ -29,4 +29,5 @@ class User:
         self.__user_name = input("Enter username: \n")
         password = input("Enter password: \n")
         #need to encrypt password
+        self.__password = password
 
