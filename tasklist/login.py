@@ -1,7 +1,7 @@
 from filefunctions import FileFunctions
 
 class Login:
-    filename = "users.txt"
+    filename = "users.csv"
     userdata = []
 
     def __init__(self):
