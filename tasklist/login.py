@@ -18,21 +18,22 @@ class Login:
         return retval
 
     def create_user(self, userName, password):
-        if self.check_username(userName) == True:
+        if self.check_username(userName) == False:
             myfile = FileFunctions(self.filename)
             myfile.write_file(f"{userName},{password}\n", "a")
  
     def authenticate_user(self, userName, password):
-        retval = False
+        self.load_file()
         if len(self.userdata) > 0:
-            check = self.userdata[userName]
-            if check[1] == password:
-                retval = True
-        return retval
+            for sublist in self.userdata:
+                if sublist[0] ==userName and sublist[1] == password:
+                    return True
+        return False
 
     def load_file(self):
         myfile = FileFunctions(self.filename)
         self.userdata = myfile.read_csv()
+
 
 
 
