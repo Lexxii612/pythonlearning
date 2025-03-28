@@ -31,3 +31,6 @@ class User:
         #need to encrypt password
         self.__password = password
 
+    def get_user_name(self):
+        return self.__user_name
+

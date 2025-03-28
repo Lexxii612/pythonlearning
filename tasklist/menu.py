@@ -7,20 +7,17 @@ class Menu:
 
     is_active= True
     user_selection = 0
-    my_taskList = TaskList("my expenses")
+    my_taskList = TaskList("myTasks")
     my_file = FileFunctions("tasks")
     my_user = User("", "")
 
 
     def __init__(self):
-        #file = self.my_file.load_file()
-        # budget from file
-        #my_budget = self.my_file.load_file()
         pass
 
     def display_menu(self):
         if self.my_user.is_authenticated():
-            print("1 Add a Task")
+            print("\n1 Add a Task")
             print("2 View Tasks")
             print("3 Mark a Task as Completed")
             print("4 Delete a Task")
@@ -44,12 +41,14 @@ class Menu:
         elif self.my_user.is_authenticated() and self.user_selection == 5:
             self.is_active = False
         elif self.my_user.is_authenticated() and self.user_selection == 1:
-            self.my_taskList.add_item()
+            self.my_taskList.add_item(self.my_user.get_user_name())
         elif self.my_user.is_authenticated() and self.user_selection == 2:
-            self.my_taskList.view_budget()
+            self.my_taskList.view_tasks(self.my_user.get_user_name())
         elif self.my_user.is_authenticated() and self.user_selection == 3:
-            self.my_taskList.set_budget()
-        elif self.my_user.is_authenticated() and self.user_selection == 4:
+            self.my_taskList.mark_task_complete(self.my_user.get_user_name())
+        elif self.my_user.is_authenticated() and self.user_selection == 3:
+            self.my_taskList.delete_task(self.my_user.get_user_name())
+        elif self.my_user.is_authenticated() and self.user_selection == 5:
             self.my_file.save_file(self.my_taskList)
         else:
             self.display_menu()

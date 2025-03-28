@@ -9,9 +9,8 @@ class Login:
 
     def check_username(self, username):
         retval = False
-        #self.load_file()
         for row in self.userdata:
-            if row[0].lower() == username:
+            if row[0].lower() == username.lower():
                 retval = True
                 break
 
@@ -26,7 +25,7 @@ class Login:
         self.load_file()
         if len(self.userdata) > 0:
             for sublist in self.userdata:
-                if sublist[0] ==userName and sublist[1] == password:
+                if sublist[0].lower() == userName.lower() and sublist[1] == password:
                     return True
         return False
 
